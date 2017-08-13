@@ -34,6 +34,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { Config } from '../config';
 import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 
+import { AgmCoreModule } from 'angular2-google-maps/core';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { ToolbarComponent } from './pages/toolbar/toolbar.component';
     Ng2DropdownModule,
     L_SEMANTIC_UI_MODULE,
     MdButtonToggleModule,
-
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAWoBdZHCNh5R-hB5S5ZZ2oeoYyfdDgniA'
+    })
   ],
   providers: [
     TestsService,

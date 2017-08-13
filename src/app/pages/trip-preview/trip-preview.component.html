@@ -2,8 +2,25 @@
 
 <!--Map Display-->
 <!--UL of destinations with icons and add to likes buttons-->
-<div id="map"></div>
 
+<sebm-google-map [latitude]="lat || centerLat" [longitude]="lng || centerLng" [zoom]="8" (mapClick)="mapClicked($event)">
+  <div *ngIf="coordsReady">
+    <div *ngFor="let coord of coords" >
+        <sebm-google-map-marker [latitude]="coord[0]" [longitude]="coord[1]">
+        </sebm-google-map-marker>
+    </div>
+  </div>  
+  <sebm-google-map-marker *ngIf="lat && long" [latitude]="lat" [longitude]="long">
+  </sebm-google-map-marker>
+</sebm-google-map>
+<!-- <div>
+  <sebm-google-map [latitude]="0" [longitude]="0" [zoom]="8" (mapClick)="mapClicked($event)">
+    <div *ngFor="let coord of coords">
+      <sebm-google-map-marker *ngIf="coord" [latitude]="coord[0]" [longitude]="coord[1]">
+      </sebm-google-map-marker>
+    </div>
+  </sebm-google-map>
+</div> -->
 <div>
   <ul>
     <li *ngFor="let stop of stops">
@@ -23,7 +40,7 @@
               Price: {{stop.price}}
             </div>
             <md-card-actions>
-              <button md-button>LIKE</button>
+              <button md-button (click)="getLatitudeLongitude(this.geoCoords, stop.address)">TEST GEOCOORDS</button>
               <button md-button>SHARE</button>
             </md-card-actions>
         </md-card-content>
