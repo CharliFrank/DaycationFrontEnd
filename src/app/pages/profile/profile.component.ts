@@ -42,11 +42,13 @@ export class ProfileComponent implements OnInit {
       this.counter += 1;
     }
   }
+
   toggleColor(name): void {
     console.log('current choice', name);
     name.selected ? name.selected = false : name.selected = true;
     console.log('color changed');
   }
+
   addEvent(event): void {
     const index = this.eventArr.indexOf(event.event);
     if (index > -1) {

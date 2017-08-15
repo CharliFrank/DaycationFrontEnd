@@ -75,7 +75,7 @@ export class TripPreviewComponent implements OnInit {
     coordsArr.push([lat, lng]);
     return `${lat},${lng}`;
   }
-  getLatitudeLongitude(callback, address, index) {
+  getLatitudeLongitude(callback, address, index): string {
     const func = this.geoCoords;
     const coordsArr = this.coords;
     // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
